@@ -1,2 +1,4 @@
+Andere Versionen: [English](https://liquip.github.io/docs-en)
+
 # Start
-Willkommen zu der Dokumentation des Liquip-Plugins!
+Willkommen in der Dokumentation des Liquip-Plugins!
