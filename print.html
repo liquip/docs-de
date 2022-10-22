@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Start</a></li><li class="chapter-item expanded "><a href="kapitel_1.html"><strong aria-hidden="true">1.</strong> Kapitel 1</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Einführung</a></li><li class="chapter-item expanded "><a href="getting_started.html"><strong aria-hidden="true">1.</strong> Erste Schritte</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="getting_started/config_format.html"><strong aria-hidden="true">1.2.</strong> Das Konfigurationsformat</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -140,10 +140,44 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>Andere Versionen: <a href="https://liquip.github.io/docs-en">English</a></p>
-<h1 id="start"><a class="header" href="#start">Start</a></h1>
-<p>Willkommen in der Dokumentation des Liquip-Plugins!</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+                        <p>Andere Versionen: <a href="https://liquip.github.io/docs-de">English</a></p>
+<h1 id="einführung"><a class="header" href="#einführung">Einführung</a></h1>
+<p>Willkommen im englischen Liquip-Wiki. In diesem Artikel erfahren Sie, wie Sie das Liquip-Plugin verwenden, welche Funktionen es hat und wie Sie es mit eigenen Plugins erweitern können.</p>
+<h2 id="quellcode"><a class="header" href="#quellcode">Quellcode</a></h2>
+<p>Der Quellcode, aus dem diesem Artikel generiert wird, finden Sie auf <a href="https://github.com/liquip/docs-en">GitHub</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="einstieg"><a class="header" href="#einstieg">Einstieg</a></h1>
+<p>Um mit Liquip zu beginnen, müssen Sie zunächst einige wichtige Teile des Plugins verstehen. In diesem Kapitel werden wir Folgendes besprechen:</p>
+<ul>
+<li>Erstellen und Installieren des Plugins</li>
+<li>Verständnis des Konfigurationsformats</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<p>Um das Plugin zu installieren, müssen Sie es derzeit selbst erstellen. In der folgenden Anleitung wird Ihnen dies Schritt für Schritt beigebracht.</p>
+<h2 id="voraussetzungen"><a class="header" href="#voraussetzungen">Voraussetzungen</a></h2>
+<p>Um das Plugin zu bauen, benötigen Sie Folgendes:</p>
+<ul>
+<li>Java 17 oder höher</li>
+<li>Git</li>
+</ul>
+<h2 id="java-installieren"><a class="header" href="#java-installieren">Java installieren</a></h2>
+<p>Um Java zu installieren, können Sie zu <a href="https://adoptium.net">Adoptium</a> gehen. Sie bieten vorgefertigte Java-Binaries und sogar Installer für Java.</p>
+<h2 id="git-installieren"><a class="header" href="#git-installieren">Git installieren</a></h2>
+<p>Um Git zu installieren, können Sie zu <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a> gehen und Git von dort installieren.</p>
+<h2 id="konfiguration"><a class="header" href="#konfiguration">Konfiguration</a></h2>
+<p>Um das Projekt einzurichten, müssen Sie zuerst das Repository klonen. Erstellen Sie dazu irgendwo ein Verzeichnis und öffnen Sie dort Ihr Terminal und führen Sie den folgenden Befehl aus:</p>
+<pre><code class="language-sh">git clone https://github.com/liquip/liquip-plugin.git .
+</code></pre>
+<p>Dadurch wird das Repository in das aktuelle Verzeichnis geklont. Beachten Sie, dass das Verzeichnis dazu leer sein muss.</p>
+<h2 id="jar-datei-bekommen"><a class="header" href="#jar-datei-bekommen">JAR-Datei bekommen</a></h2>
+<p>Um das Plugin (.jar-Datei) jetzt zu erstellen, führen Sie den folgenden Befehl in dem Verzeichnis aus, in das Sie geklont haben:</p>
+<p>Für Linux/macOS:</p>
+<pre><code class="language-sh">./gradlew build
+</code></pre>
+<p>Für Windows:</p>
+<pre><code class="language-bat">.\gradlew.bat build
+</code></pre>
+<p>Dies sollte Gradle starten und das Plugin erstellen. Das Plugin ist in drei Submodule unterteilt, nämlich 'core', 'example-plugin' und 'gui'. Das Kernmodul ist das Liquip-Plugin. Das Beispiel-Plugin enthält einige experimentelle Features. Das GUI-Modul enthält den Code für die Inventory-GUIs. Alle drei Module werden gebaut, aber Sie interessieren sich höchstwahrscheinlich nur für das Kernmodul. Die Ausgabe befindet sich im Verzeichnis <code>core/build/libs</code>. Sie möchten die JAR-Datei ohne '-dev' oder '-all' darin nehmen und sie in Ihr Plugins-Verzeichnis legen.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="das-konfigurationsformat"><a class="header" href="#das-konfigurationsformat">Das Konfigurationsformat</a></h1>
 
                     </main>
 
