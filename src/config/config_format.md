@@ -1,9 +1,9 @@
 # Das Konfigurationsformat
 
-Viele Plug-ins verwenden die [YAML-Konfigurationssprache] (https://en.wikipedia.org/wiki/YAML). Wir verwenden stattdessen eine andere
+Viele Plugins verwenden die [YAML-Konfigurationssprache] (https://en.wikipedia.org/wiki/YAML). Wir verwenden stattdessen ein anderes
 Konfigurationsformat. Wir denken, dass es weniger fehleranfällig ist, da es nicht auf Einrückungen angewiesen ist. Es heißt HOCON und wir empfehlen es
-die Dateierweiterung `.conf`. Sie können mehr darüber lesen
-es [hier](https://github.com/lightbend/config/blob/4458ea947a7a2a668bb811a122455f1f05975172/HOCON.md), aber wir werden es auch tun
+die Dateierweiterung `.conf`. Um mehr darüber zu erfahren, klicken sie
+[hier](https://github.com/lightbend/config/blob/4458ea947a7a2a668bb811a122455f1f05975172/HOCON.md), aber wir werden es auch tun
 erklären die Grundlagen in dieser kurzen Anleitung.
 
 ## Datentypen
