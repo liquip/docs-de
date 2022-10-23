@@ -140,6 +140,45 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="das-konfigurationsformat"><a class="header" href="#das-konfigurationsformat">Das Konfigurationsformat</a></h1>
+<p>Viele Plug-ins verwenden die [YAML-Konfigurationssprache] (https://en.wikipedia.org/wiki/YAML). Wir verwenden stattdessen eine andere
+Konfigurationsformat. Wir denken, dass es weniger fehleranfällig ist, da es nicht auf Einrückungen angewiesen ist. Es heißt HOCON und wir empfehlen es
+die Dateierweiterung <code>.conf</code>. Sie können mehr darüber lesen
+es <a href="https://github.com/lightbend/config/blob/4458ea947a7a2a668bb811a122455f1f05975172/HOCON.md">hier</a>, aber wir werden es auch tun
+erklären die Grundlagen in dieser kurzen Anleitung.</p>
+<h2 id="datentypen"><a class="header" href="#datentypen">Datentypen</a></h2>
+<p>In HOCON gibt es folgende Datentypen:</p>
+<ul>
+<li>Object</li>
+<li>List</li>
+<li>Integer</li>
+<li>Floating-point number</li>
+<li>String/Text</li>
+<li>Boolean (true/false)</li>
+</ul>
+<h2 id="darstellung"><a class="header" href="#darstellung">Darstellung</a></h2>
+<p>Die Konfigurationsdatei selbst ist ein Objekt. Es enthält Schlüssel-Wert-Paare. Um einer Taste einen Wert zuzuweisen, schreiben Sie die Taste gefolgt von der Taste
+durch ein Gleichheitszeichen (<code>=</code>) oder einen Doppelpunkt (<code>:</code>) gefolgt vom Wert. Das wird so aussehen:</p>
+<pre><code class="language-hocon">some_value: 42
+</code></pre>
+<p>oder</p>
+<pre><code class="language-hocon">some_other_value: 13
+</code></pre>
+<h3 id="einfache-typen"><a class="header" href="#einfache-typen">Einfache Typen</a></h3>
+<p>Ganze Zahlen werden einfach ausgeschrieben (z. B. <code>123</code>).</p>
+<p>Floats werden mit einem Punkt als Trennzeichen geschrieben (z. B. <code>4.5</code>).</p>
+<p>Strings werden in doppelte Anführungszeichen geschrieben (z. B. <code>&quot;Hello, world!&quot;</code>).</p>
+<p>Boolesche Werte werden als wahr oder falsch geschrieben (z. B. „true“).</p>
+<h3 id="objekte"><a class="header" href="#objekte">Objekte</a></h3>
+<p>Objekte werden als Schlüssel-Wert-Paare geschrieben, die von geschweiften Klammern (<code>{}</code>) umgeben und durch Kommas oder Zeilenumbrüche getrennt sind.</p>
+<p>Das Zuweisen eines Objekts zu einer Taste kann wie folgt aussehen:</p>
+<pre><code class="language-hocon">some_object: {some_string = &quot;Hey&quot;, some_number = 456}
+</code></pre>
+<p>oder:</p>
+<pre><code class="language-hocon">some_other_object: {
+  some_other_string: &quot;Hey&quot;
+  some_other_number: 456
+}
+</code></pre>
 
                     </main>
 
