@@ -23,6 +23,9 @@ lore: [
   "Dies ist eine neue Zeile"
 ]
 ```
+Im Spiel würde dies dann so aussehen:
+![TestItemWithLore](pictures/Item_With_Lore.png)
+
 
 ## Recipes-Tag
 Beim Recipes Tag legen Sie das Crafting-Rezept für Ihr neues Item fest. Dieses Rezept ist jedoch nur im Liquip-Craftingtable

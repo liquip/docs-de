@@ -38,3 +38,16 @@ der ID nicht möglich ist.
 ## Material-Tag
 
 In diesem Tag, müssen Sie das Item auswählen, welches darauffolgend auch angezeigt wird.
+
+
+## Endergebnis
+Unser TestItem sieht so aus:
+
+![Item](pictures/Item_with_Name.png)
+
+Erstellt mit dieser Config:
+```config
+id: "liquip:test_item"
+name: "Item Name"
+material: "minecraft:grass_block"
+```

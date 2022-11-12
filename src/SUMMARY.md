@@ -7,4 +7,4 @@
 - [Die Config](config.md)
   - [Das Konfigurationsformat](config/config_format.md)
   - [Eine mögliche Config-Datei](config/basic_config.md)
-  - [Weitere Config Verbesserungen](config/advaned_config.md)
+  - [Fortgeschrittenere Config-Tags](config/advaned_config.md)
