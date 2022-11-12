@@ -3,26 +3,26 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Erste Schritte - Liquip Dokumentation</title>
+        <title>Eine mögliche Config-Datei - Liquip Dokumentation</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Das Liquip Buch behandelt alle Features des Liquip-Plugins.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         <!-- MathJax -->
@@ -31,7 +31,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -77,7 +77,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Einführung</a></li><li class="chapter-item expanded "><a href="getting_started.html" class="active"><strong aria-hidden="true">1.</strong> Erste Schritte</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="config.html"><strong aria-hidden="true">1.2.</strong> Die Config</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="config/config_format.html"><strong aria-hidden="true">1.2.1.</strong> Das Konfigurationsformat</a></li><li class="chapter-item expanded "><a href="config/basic_config.html"><strong aria-hidden="true">1.2.2.</strong> Eine mögliche Config-Datei</a></li><li class="chapter-item expanded "><a href="config/advaned_config.html"><strong aria-hidden="true">1.2.3.</strong> Weitere Config Verbesserungen</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Einführung</a></li><li class="chapter-item expanded "><a href="../getting_started.html"><strong aria-hidden="true">1.</strong> Erste Schritte</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../config.html"><strong aria-hidden="true">1.2.</strong> Die Config</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../config/config_format.html"><strong aria-hidden="true">1.2.1.</strong> Das Konfigurationsformat</a></li><li class="chapter-item expanded "><a href="../config/basic_config.html" class="active"><strong aria-hidden="true">1.2.2.</strong> Eine mögliche Config-Datei</a></li><li class="chapter-item expanded "><a href="../config/advaned_config.html"><strong aria-hidden="true">1.2.3.</strong> Weitere Config Verbesserungen</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -109,7 +109,7 @@
                     <h1 class="menu-title">Liquip Dokumentation</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         <a href="https://github.com/liquip/docs-de" title="Git repository" aria-label="Git repository">
@@ -139,20 +139,44 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="einstieg"><a class="header" href="#einstieg">Einstieg</a></h1>
-<p>Um mit Liquip zu beginnen, müssen Sie zunächst einige wichtige Teile des Plugins verstehen. In diesem Kapitel werden wir Folgendes besprechen:</p>
+                        <h1 id="basic-config-beispiel"><a class="header" href="#basic-config-beispiel">Basic Config Beispiel</a></h1>
+<p>In diesen Artikel wir Ihnen per Beispiel praktisch erklärt, ein Item zu erstellen.
+Die minimalste Config ist folgende</p>
+<pre><code class="language-config">id: &quot;liquip:test_item&quot;
+name: &quot;Item Name&quot;
+material: &quot;minecraft:grass_block&quot;
+</code></pre>
+<p>Wie Sie sehen, erstellen Sie Items, durch das Ausfüllen mehrerer Tags. Dabei ist es wichtig zu beachten, dass die Tags
+<code>id:</code>,<code>name:</code> und <code>material:</code> nicht optional sind. Das heißt das diese Tags in jeder Config existieren müssen.</p>
+<p>Jedoch gibt es noch weitere optionale Tags, durch die Sie Ihre Config erweitern können:</p>
 <ul>
-<li>Erstellen und Installieren des Plugins</li>
+<li><code>recipes:</code></li>
+<li><code>lore:</code></li>
+<li><code>features:</code></li>
+<li><code>enchantments:</code></li>
+<li><code>modifiers:</code></li>
+<li><code>custommodeldata:</code></li>
 </ul>
+<p>Diese Tags erläutern wir in der <a href="advaned_config.html">Verbesserten Config</a>.</p>
+<h2 id="id-tag"><a class="header" href="#id-tag">ID-Tag</a></h2>
+<p>Der Tag <code>id:</code> wir benutzt, um die Id eines Items festzulegen. Wie in Vanilla Minecraft hat alles einen nicht visuellen
+Namespace. Dieser wir verwendet, um sich mit dem Command <code>/liquip give &lt;id&gt;</code> jedes Liquip-Item geben zu lassen.
+Normalerweise verwendet man Namespaces. Das sind einheitliche Bezeichnungen von jedem Item,
+also <code>&lt;namespace&gt;:&lt;item_name&gt;</code>. Der Namespace von allen offiziellen Liquip-Items ist <code>liquip:</code>.</p>
+<h2 id="name-tag"><a class="header" href="#name-tag">Name-Tag</a></h2>
+<p>Der Tag <code>name:</code> wird für den visuell sichbaren Namen verwendet. Dieser Tag unterstützt außerdem Lehrzeichen, was bei
+der ID nicht möglich ist.</p>
+<h2 id="material-tag"><a class="header" href="#material-tag">Material-Tag</a></h2>
+<p>In diesem Tag, müssen Sie das Item auswählen, welches darauffolgend auch angezeigt wird.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../config/config_format.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="getting_started/installation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../config/advaned_config.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -161,10 +185,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../config/config_format.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="getting_started/installation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../config/advaned_config.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -174,12 +198,12 @@
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
     </body>

@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Einführung</a></li><li class="chapter-item expanded "><a href="getting_started.html"><strong aria-hidden="true">1.</strong> Erste Schritte</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="getting_started/config_format.html"><strong aria-hidden="true">1.2.</strong> Das Konfigurationsformat</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Einführung</a></li><li class="chapter-item expanded "><a href="getting_started.html"><strong aria-hidden="true">1.</strong> Erste Schritte</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="config.html"><strong aria-hidden="true">1.2.</strong> Die Config</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="config/config_format.html"><strong aria-hidden="true">1.2.1.</strong> Das Konfigurationsformat</a></li><li class="chapter-item expanded "><a href="config/basic_config.html"><strong aria-hidden="true">1.2.2.</strong> Eine mögliche Config-Datei</a></li><li class="chapter-item expanded "><a href="config/advaned_config.html"><strong aria-hidden="true">1.2.3.</strong> Weitere Config Verbesserungen</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -149,7 +149,6 @@
 <p>Um mit Liquip zu beginnen, müssen Sie zunächst einige wichtige Teile des Plugins verstehen. In diesem Kapitel werden wir Folgendes besprechen:</p>
 <ul>
 <li>Erstellen und Installieren des Plugins</li>
-<li>Verständnis des Konfigurationsformats</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
 <p>Um das Plugin zu installieren, müssen Sie es derzeit selbst erstellen. In der folgenden Anleitung wird Ihnen dies Schritt für Schritt beigebracht.</p>
@@ -177,11 +176,17 @@
 <pre><code class="language-bat">.\gradlew.bat build
 </code></pre>
 <p>Dies sollte Gradle starten und das Plugin erstellen. Das Plugin ist in drei Submodule unterteilt, nämlich 'core', 'example-plugin' und 'gui'. Das Kernmodul ist das Liquip-Plugin. Das Beispiel-Plugin enthält einige experimentelle Features. Das GUI-Modul enthält den Code für die Inventory-GUIs. Alle drei Module werden gebaut, aber Sie interessieren sich höchstwahrscheinlich nur für das Kernmodul. Die Ausgabe befindet sich im Verzeichnis <code>core/build/libs</code>. Sie möchten die JAR-Datei ohne '-dev' oder '-all' darin nehmen und sie in Ihr Plugins-Verzeichnis legen.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="configurationsdateien"><a class="header" href="#configurationsdateien">Configurationsdateien</a></h1>
+<p>Um mit Liquip zu beginnen, müssen Sie zunächst einige wichtige Teile des Plugins verstehen. In diesem Kapitel werden wir Folgendes besprechen:</p>
+<ul>
+<li>Das Config Format</li>
+<li>Ein Config Beispiel</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="das-konfigurationsformat"><a class="header" href="#das-konfigurationsformat">Das Konfigurationsformat</a></h1>
-<p>Viele Plug-ins verwenden die [YAML-Konfigurationssprache] (https://en.wikipedia.org/wiki/YAML). Wir verwenden stattdessen eine andere
+<p>Viele Plugins verwenden die [YAML-Konfigurationssprache] (https://en.wikipedia.org/wiki/YAML). Wir verwenden stattdessen ein anderes
 Konfigurationsformat. Wir denken, dass es weniger fehleranfällig ist, da es nicht auf Einrückungen angewiesen ist. Es heißt HOCON und wir empfehlen es
-die Dateierweiterung <code>.conf</code>. Sie können mehr darüber lesen
-es <a href="https://github.com/lightbend/config/blob/4458ea947a7a2a668bb811a122455f1f05975172/HOCON.md">hier</a>, aber wir werden es auch tun
+die Dateierweiterung <code>.conf</code>. Um mehr darüber zu erfahren, klicken sie
+<a href="https://github.com/lightbend/config/blob/4458ea947a7a2a668bb811a122455f1f05975172/HOCON.md">hier</a>, aber wir werden es auch tun
 erklären die Grundlagen in dieser kurzen Anleitung.</p>
 <h2 id="datentypen"><a class="header" href="#datentypen">Datentypen</a></h2>
 <p>In HOCON gibt es folgende Datentypen:</p>
@@ -217,6 +222,85 @@ durch ein Gleichheitszeichen (<code>=</code>) oder einen Doppelpunkt (<code>:</c
   some_other_number: 456
 }
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="basic-config-beispiel"><a class="header" href="#basic-config-beispiel">Basic Config Beispiel</a></h1>
+<p>In diesen Artikel wir Ihnen per Beispiel praktisch erklärt, ein Item zu erstellen.
+Die minimalste Config ist folgende</p>
+<pre><code class="language-config">id: &quot;liquip:test_item&quot;
+name: &quot;Item Name&quot;
+material: &quot;minecraft:grass_block&quot;
+</code></pre>
+<p>Wie Sie sehen, erstellen Sie Items, durch das Ausfüllen mehrerer Tags. Dabei ist es wichtig zu beachten, dass die Tags
+<code>id:</code>,<code>name:</code> und <code>material:</code> nicht optional sind. Das heißt das diese Tags in jeder Config existieren müssen.</p>
+<p>Jedoch gibt es noch weitere optionale Tags, durch die Sie Ihre Config erweitern können:</p>
+<ul>
+<li><code>recipes:</code></li>
+<li><code>lore:</code></li>
+<li><code>features:</code></li>
+<li><code>enchantments:</code></li>
+<li><code>modifiers:</code></li>
+<li><code>custommodeldata:</code></li>
+</ul>
+<p>Diese Tags erläutern wir in der <a href="config/advaned_config.html">Verbesserten Config</a>.</p>
+<h2 id="id-tag"><a class="header" href="#id-tag">ID-Tag</a></h2>
+<p>Der Tag <code>id:</code> wir benutzt, um die Id eines Items festzulegen. Wie in Vanilla Minecraft hat alles einen nicht visuellen
+Namespace. Dieser wir verwendet, um sich mit dem Command <code>/liquip give &lt;id&gt;</code> jedes Liquip-Item geben zu lassen.
+Normalerweise verwendet man Namespaces. Das sind einheitliche Bezeichnungen von jedem Item,
+also <code>&lt;namespace&gt;:&lt;item_name&gt;</code>. Der Namespace von allen offiziellen Liquip-Items ist <code>liquip:</code>.</p>
+<h2 id="name-tag"><a class="header" href="#name-tag">Name-Tag</a></h2>
+<p>Der Tag <code>name:</code> wird für den visuell sichbaren Namen verwendet. Dieser Tag unterstützt außerdem Lehrzeichen, was bei
+der ID nicht möglich ist.</p>
+<h2 id="material-tag"><a class="header" href="#material-tag">Material-Tag</a></h2>
+<p>In diesem Tag, müssen Sie das Item auswählen, welches darauffolgend auch angezeigt wird.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fortgeschrittene-config-tags"><a class="header" href="#fortgeschrittene-config-tags">Fortgeschrittene Config-Tags</a></h1>
+<p>Unser Plugin ermöglicht nicht nur 3 Tags wie in <a href="config/basic_config.html">Basic Config</a> gezeigt, sondern auch viele weitere.
+Darunter sind folgende Tags:</p>
+<ul>
+<li><code>lore:</code></li>
+<li><code>recipes:</code></li>
+<li><code>features:</code></li>
+<li><code>enchantments:</code></li>
+<li><code>modifiers:</code></li>
+<li><code>custommodeldata:</code></li>
+</ul>
+<p>Diese Tags sind nicht zwangsweise notwendig, sondern nur optional!</p>
+<p>Außerdem gibt es noch die Möglichkeit farbige Texte zu erstellen, siehe <a href="config/colorful_names.html">Farbige Namen</a>.</p>
+<h2 id="lore-tag"><a class="header" href="#lore-tag">Lore-Tag</a></h2>
+<p>Bei diesem Tag legen Sie die Beschreibung des Items fest. Dies kann z.B. so aussehen:</p>
+<pre><code class="language-lore_tag">lore: [
+  &quot;Test Item&quot;
+  &quot;Dies ist eine neue Zeile&quot;
+]
+</code></pre>
+<h2 id="recipes-tag"><a class="header" href="#recipes-tag">Recipes-Tag</a></h2>
+<p>Beim Recipes Tag legen Sie das Crafting-Rezept für Ihr neues Item fest. Dieses Rezept ist jedoch nur im Liquip-Craftingtable
+verfügbar. Dieser ist folgend aufgebaut: </p>
+<pre><code class="language-recipes_tag">recipes: [
+    {
+    shape: [&quot;xxx&quot;, &quot; y &quot;, &quot; y &quot;]
+    placeholders: [
+        {key: &quot;y&quot;, type: &quot;minecraft:stick&quot;}
+        {key: &quot;x&quot;, type: &quot;minecraft:diamond&quot;}
+    ]
+    }
+]
+</code></pre>
+<p>Unter <code>shape:</code> legt man mit Placeholdern (selbst ausgesuchte Buchstaben) das Recipe an sich fest. Diese Buchstaben
+stehen für die bei <code>placeholders:</code> festgelegten Materialien fest. Diese können auch Liquip Items sein. In diesem
+Beispiel verwenden wir das Crafting-Rezept für eine gewöhnliche Diamant-Spitzhacke. </p>
+<p>Die durch ein Kommatar getrennten <code>Strings</code> bei <code>shape:</code> stehen jeweils für eine Zeile im Crafting-Table.</p>
+<h2 id="features-tag"><a class="header" href="#features-tag">Features-Tag</a></h2>
+<p>Dieser Tag wird verwendet, um spezielle, nur per Plugin machbare Funktionen möglich zu machen. Features müssen Sie
+selber im <code>example-plugin</code> pogrammieren und dann als Tag spezifischen Items zuweisen. </p>
+<p>Das zuweisen in der Config würde so aussehen:</p>
+<pre><code class="language-features_tag">features: [
+  &quot;minecraft:unbreakable&quot;
+  &quot;liquip:test_feature&quot;
+]
+</code></pre>
+<p>Es gibt vorprogrammierte Features für unsere Items, wie z. B. der <code>Staff of Power</code>, welche Sie selbstverständlich
+auch zu Ihren Items hinzufügen können.</p>
+<p>Eine Liste aller von uns pogrammierten Features finden sie <a href="config/">hier</a>.</p>
+<h2 id="enchantments-tag"><a class="header" href="#enchantments-tag">Enchantments-Tag</a></h2>
 
                     </main>
 
