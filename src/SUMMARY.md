@@ -6,4 +6,5 @@
     - [Installation](getting_started/installation.md)
   - [Die Config](config.md)
     - [Das Konfigurationsformat](config/config_format.md)
-    - [Eine mögliche Config-Datei](config/config_example.md)
+    - [Eine mögliche Config-Datei](config/basic_config.md)
+    - [Weitere Config Verbesserungen](config/advaned_config.md)
