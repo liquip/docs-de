@@ -1,10 +1,14 @@
-# Zusammenfassung
+# Inhaltsverzeichnis
 
 [Einführung](README.md)
 
-- [Erste Schritte](getting_started.md)
-    - [Installation](getting_started/installation.md)
-- [Die Config](config.md)
-  - [Das Konfigurationsformat](config/config_format.md)
-  - [Eine mögliche Config-Datei](config/basic_config.md)
-  - [Fortgeschrittenere Config-Tags](config/advaned_config.md)
+- [Start](getting-started/index.md)
+  - [Installation](getting-started/installation.md)
+  - [Das Konfigurations Format](getting-started/config-format.md)
+- [Erklärung Liquip-Spezifischer Begriffe](declaration/index.md)
+- [Eigene Items](custom-items/index.md)
+  - [Registration](custom-items/registration.md)
+  - [Minimale Konfigdatei](custom-items/minimal-item-config.md)
+- [Professionelles](reference/index.md)
+  - [Typen](reference/types.md)
+  - [Standartfeatures](reference/default-features.md)

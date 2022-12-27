@@ -1,0 +1,1 @@
+# Erklärung Liquip-Spezifischer Begriffe
