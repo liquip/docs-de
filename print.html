@@ -5,8 +5,10 @@
         <meta charset="UTF-8">
         <title>Liquip Dokumentation</title>
         <meta name="robots" content="noindex" />
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="Das Liquip Buch behandelt alle Features des Liquip-Plugins.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -17,27 +19,30 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
         <!-- MathJax -->
-        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -53,7 +58,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -65,7 +70,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -78,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Einführung</a></li><li class="chapter-item expanded "><a href="getting_started.html"><strong aria-hidden="true">1.</strong> Erste Schritte</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li></ol></li><li class="chapter-item expanded "><a href="config.html"><strong aria-hidden="true">2.</strong> Die Config</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="config/config_format.html"><strong aria-hidden="true">2.1.</strong> Das Konfigurationsformat</a></li><li class="chapter-item expanded "><a href="config/basic_config.html"><strong aria-hidden="true">2.2.</strong> Eine mögliche Config-Datei</a></li><li class="chapter-item expanded "><a href="config/advaned_config.html"><strong aria-hidden="true">2.3.</strong> Fortgeschrittenere Config-Tags</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Einführung</a></li><li class="chapter-item expanded "><a href="getting-started/index.html"><strong aria-hidden="true">1.</strong> Start</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting-started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="getting-started/config-format.html"><strong aria-hidden="true">1.2.</strong> Das Konfigurations Format</a></li></ol></li><li class="chapter-item expanded "><a href="declaration/index.html"><strong aria-hidden="true">2.</strong> Erklärung Liquip-Spezifischer Begriffe</a></li><li class="chapter-item expanded "><a href="custom-items/index.html"><strong aria-hidden="true">3.</strong> Eigene Items</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="custom-items/registration.html"><strong aria-hidden="true">3.1.</strong> Registration</a></li><li class="chapter-item expanded "><a href="custom-items/minimal-item-config.html"><strong aria-hidden="true">3.2.</strong> Minimale Konfigdatei</a></li></ol></li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">4.</strong> Professionelles</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="reference/types.html"><strong aria-hidden="true">4.1.</strong> Typen</a></li><li class="chapter-item expanded "><a href="reference/default-features.html"><strong aria-hidden="true">4.2.</strong> Standartfeatures</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -86,7 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -96,7 +101,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -116,6 +121,7 @@
                         <a href="https://github.com/liquip/docs-de" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -129,8 +135,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -140,210 +147,106 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>Andere Versionen: <a href="https://liquip.github.io/docs-de">English</a></p>
+                        <p>Andere Versionen: <a href="https://liquip.github.io/docs-en">English</a></p>
 <h1 id="einführung"><a class="header" href="#einführung">Einführung</a></h1>
 <p>Willkommen im englischen Liquip-Wiki. In diesem Artikel erfahren Sie, wie Sie das Liquip-Plugin verwenden, welche Funktionen es hat und wie Sie es mit eigenen Plugins erweitern können.</p>
 <h2 id="quellcode"><a class="header" href="#quellcode">Quellcode</a></h2>
 <p>Der Quellcode, aus dem diesem Artikel generiert wird, finden Sie auf <a href="https://github.com/liquip/docs-en">GitHub</a>.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="einstieg"><a class="header" href="#einstieg">Einstieg</a></h1>
-<p>Um mit Liquip zu beginnen, müssen Sie zunächst einige wichtige Teile des Plugins verstehen. In diesem Kapitel werden wir Folgendes besprechen:</p>
-<ul>
-<li>Erstellen und Installieren des Plugins</li>
-</ul>
+<h3 id="kontaktaufnahme"><a class="header" href="#kontaktaufnahme">Kontaktaufnahme</a></h3>
+<p>Wenn Ihnen Fehler auffallen oder Sie noch fragen zu unserem Plugin oder zu unseren Websiten haben, schreiben sie uns gerne eine E-Mail an <code>jonte.puschmann.mail@gmail.com</code>(Service) oder an <code>sqyyy.dev@gmail.com</code>(Developer).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="start"><a class="header" href="#start">Start</a></h1>
+<p>In dieser Kategorie werden wir die Themen Installation und das Konfigurationsformat behandeln.</p>
+<h2 id="inhaltspunkt-1---installation"><a class="header" href="#inhaltspunkt-1---installation"><a href="getting-started/installation.html">Inhaltspunkt 1 - Installation</a></a></h2>
+<p>Um mit Liquip arbeiten zu können, müssen Sie Liquip erstmal Installieren. Die Installation wird in folgendem Artikel
+von uns verständlich erläutert.</p>
+<h2 id="inhaltspunkt-2---konfigformat"><a class="header" href="#inhaltspunkt-2---konfigformat"><a href="getting-started/config-format.html">Inhaltspunkt 2 - Konfigformat</a></a></h2>
+<p>Damit Sie Items erstellen können, müssen Sie erstmal unser verwendetes Konfigurationsformat verstehen. 
+Wir verwenden ein Format, welches auf <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation">JSON</a> basiert.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
-<p>Um das Plugin zu installieren, müssen Sie es derzeit selbst erstellen. In der folgenden Anleitung wird Ihnen dies Schritt für Schritt beigebracht.</p>
+<p>Um Liquip zu installieren, müssen Sie die letzte Version von der <a href="https://github.com/liquip/liquip-plugin/releases">Github Releases Seite</a>
+herunterladen. </p>
+<p>Wenn Sie die <a href="https://de.wikipedia.org/wiki/Java_Archive">JAR-Datei</a> heruntergeladen haben, sollten Sie diese in das
+<code>plugin</code> Verzeichnis Ihres Servers verschieben. Wenn Sie noch keinen Server aufgesetzt haben finden Sie auf dieser Seite
+eine Anleitung dafür.</p>
 <h2 id="voraussetzungen"><a class="header" href="#voraussetzungen">Voraussetzungen</a></h2>
-<p>Um das Plugin zu bauen, benötigen Sie Folgendes:</p>
+<p>Um Liquip benutzen zu können brauchen Sie folgendes:</p>
 <ul>
-<li>Java 17 oder höher</li>
-<li>Git</li>
+<li>Java 17 oder neuer</li>
+<li>Paper 1.19 Server (andere Versionen sind nicht getestet)</li>
 </ul>
-<h2 id="java-installieren"><a class="header" href="#java-installieren">Java installieren</a></h2>
-<p>Um Java zu installieren, können Sie zu <a href="https://adoptium.net">Adoptium</a> gehen. Sie bieten vorgefertigte Java-Binaries und sogar Installer für Java.</p>
-<h2 id="git-installieren"><a class="header" href="#git-installieren">Git installieren</a></h2>
-<p>Um Git zu installieren, können Sie zu <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a> gehen und Git von dort installieren.</p>
-<h2 id="konfiguration"><a class="header" href="#konfiguration">Konfiguration</a></h2>
-<p>Um das Projekt einzurichten, müssen Sie zuerst das Repository klonen. Erstellen Sie dazu irgendwo ein Verzeichnis und öffnen Sie dort Ihr Terminal und führen Sie den folgenden Befehl aus:</p>
-<pre><code class="language-sh">git clone https://github.com/liquip/liquip-plugin.git .
+<h2 id="installation-von-java"><a class="header" href="#installation-von-java">Installation von Java</a></h2>
+<p>Falls Sie kein Java installiert haben können Sie zu <a href="https://adoptium.net/de/">Adoptium</a> gehen und sich dort die Java Binarys und sogar fertige Installer
+herunterladen.</p>
+<p>Um zu testen, ob Sie Java erfolgreich installiert haben, müssen Sie Ihre Konsole öffnen und dort den Befehl <code>java --version</code> eingeben.
+Sie werden danach eine Antwort wie <code>openjdk 17.0.1 2021-10-19</code> erhalten. Wichtig ist die erste Zahl nach <code>openjdk</code> 17 oder höher ist.</p>
+<h2 id="installation-von-paper-und-aufsetzen-des-minecraft-servers"><a class="header" href="#installation-von-paper-und-aufsetzen-des-minecraft-servers">Installation von Paper und Aufsetzen des Minecraft-Servers</a></h2>
+<p>Um Ihren persönlichen Minecraft Server zu erstellen, müssen Sie sich erstmal die neuste Paper-Version von deren <a href="https://papermc.io/downloads">Website</a>
+herunterladen und die heruntergeladene JAR-Datei zu Ihrem gewünschten Verzeichnis verschieben. </p>
+<p>Um danach den Server zu starten, müssen Sie Ihr Terminal in dem Verzeichnis öffnen und folgenden Befehl ausführen:
+<code>java -Xms2G -Xmx2G -jar &lt;Dateiname der JAR-Datei + .jar&gt; --nogui</code> also z. B. <code>java -Xms2G -Xmx2G -jar paper-1.19.3-362.jar --nogui</code>.</p>
+<p>Beim ersten Start der Datei wird höchstwahrscheinlich ein Error auftreten. Die Error-Nachricht müsste ungefähr so aussehen:
+<code>Failed to load eula.txt</code>. Dies ist völlig normal und heißt einfach, dass Sie dem <a href="https://de.wikipedia.org/wiki/Endbenutzer-Lizenzvertrag">Endbenutzer-Lizensvertrag</a> zustimmen müssen.</p>
+<p>Dafür öffnen Sie die neu erstellte Datei <code>eula.txt</code>. In dieser müsste ungefähr das stehen:</p>
+<pre><code class="language-eula">#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.ms/MinecraftEULA).
+#Tue Dec 27 18:00:00 CET 2022
+eula=false
 </code></pre>
-<p>Dadurch wird das Repository in das aktuelle Verzeichnis geklont. Beachten Sie, dass das Verzeichnis dazu leer sein muss.</p>
-<h2 id="jar-datei-bekommen"><a class="header" href="#jar-datei-bekommen">JAR-Datei bekommen</a></h2>
-<p>Um das Plugin (.jar-Datei) jetzt zu erstellen, führen Sie den folgenden Befehl in dem Verzeichnis aus, in das Sie geklont haben:</p>
-<p>Für Linux/macOS:</p>
-<pre><code class="language-sh">./gradlew build
-</code></pre>
-<p>Für Windows:</p>
-<pre><code class="language-bat">.\gradlew.bat build
-</code></pre>
-<p>Dies sollte Gradle starten und das Plugin erstellen. Das Plugin ist in drei Submodule unterteilt, nämlich 'core', 'example-plugin' und 'gui'. Das Kernmodul ist das Liquip-Plugin. Das Beispiel-Plugin enthält einige experimentelle Features. Das GUI-Modul enthält den Code für die Inventory-GUIs. Alle drei Module werden gebaut, aber Sie interessieren sich höchstwahrscheinlich nur für das Kernmodul. Die Ausgabe befindet sich im Verzeichnis <code>core/build/libs</code>. Sie möchten die JAR-Datei ohne '-dev' oder '-all' darin nehmen und sie in Ihr Plugins-Verzeichnis legen.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="configurationsdateien"><a class="header" href="#configurationsdateien">Configurationsdateien</a></h1>
-<p>Um mit Liquip zu beginnen, müssen Sie zunächst einige wichtige Teile des Plugins verstehen. In diesem Kapitel werden wir Folgendes besprechen:</p>
-<ul>
-<li>Das Config Format</li>
-<li>Ein Config Beispiel</li>
-<li>Fortgeschritte Config-Tags</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="das-konfigurationsformat"><a class="header" href="#das-konfigurationsformat">Das Konfigurationsformat</a></h1>
-<p>Viele Plugins verwenden die [YAML-Konfigurationssprache] (https://en.wikipedia.org/wiki/YAML). Wir verwenden stattdessen ein anderes
-Konfigurationsformat. Wir denken, dass es weniger fehleranfällig ist, da es nicht auf Einrückungen angewiesen ist. Es heißt HOCON und wir empfehlen es
-die Dateierweiterung <code>.conf</code>. Um mehr darüber zu erfahren, klicken sie
-<a href="https://github.com/lightbend/config/blob/4458ea947a7a2a668bb811a122455f1f05975172/HOCON.md">hier</a>, aber wir werden es auch tun
-erklären die Grundlagen in dieser kurzen Anleitung.</p>
-<h2 id="datentypen"><a class="header" href="#datentypen">Datentypen</a></h2>
-<p>In HOCON gibt es folgende Datentypen:</p>
-<ul>
-<li>Object</li>
-<li>List</li>
-<li>Integer</li>
-<li>Floating-point number</li>
-<li>String/Text</li>
-<li>Boolean (true/false)</li>
-</ul>
-<h2 id="darstellung"><a class="header" href="#darstellung">Darstellung</a></h2>
-<p>Die Konfigurationsdatei selbst ist ein Objekt. Es enthält Schlüssel-Wert-Paare. Um einer Taste einen Wert zuzuweisen, schreiben Sie die Taste gefolgt von der Taste
-durch ein Gleichheitszeichen (<code>=</code>) oder einen Doppelpunkt (<code>:</code>) gefolgt vom Wert. Das wird so aussehen:</p>
-<pre><code class="language-hocon">some_value: 42
-</code></pre>
-<p>oder</p>
-<pre><code class="language-hocon">some_other_value: 13
-</code></pre>
-<h3 id="einfache-typen"><a class="header" href="#einfache-typen">Einfache Typen</a></h3>
-<p>Ganze Zahlen werden einfach ausgeschrieben (z. B. <code>123</code>).</p>
-<p>Floats werden mit einem Punkt als Trennzeichen geschrieben (z. B. <code>4.5</code>).</p>
-<p>Strings werden in doppelte Anführungszeichen geschrieben (z. B. <code>&quot;Hello, world!&quot;</code>).</p>
-<p>Boolesche Werte werden als wahr oder falsch geschrieben (z. B. „true“).</p>
-<h3 id="objekte"><a class="header" href="#objekte">Objekte</a></h3>
-<p>Objekte werden als Schlüssel-Wert-Paare geschrieben, die von geschweiften Klammern (<code>{}</code>) umgeben und durch Kommas oder Zeilenumbrüche getrennt sind.</p>
-<p>Das Zuweisen eines Objekts zu einer Taste kann wie folgt aussehen:</p>
-<pre><code class="language-hocon">some_object: {some_string = &quot;Hey&quot;, some_number = 456}
-</code></pre>
-<p>oder:</p>
-<pre><code class="language-hocon">some_other_object: {
-  some_other_string: &quot;Hey&quot;
-  some_other_number: 456
-}
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="basic-config-beispiel"><a class="header" href="#basic-config-beispiel">Basic Config Beispiel</a></h1>
-<p>In diesen Artikel wir Ihnen per Beispiel praktisch erklärt, ein Item zu erstellen.
-Die minimalste Config ist folgende</p>
-<pre><code class="language-config">id: &quot;liquip:test_item&quot;
-name: &quot;Item Name&quot;
-material: &quot;minecraft:grass_block&quot;
-</code></pre>
-<p>Wie Sie sehen, erstellen Sie Items, durch das Ausfüllen mehrerer Tags. Dabei ist es wichtig zu beachten, dass die Tags
-<code>id:</code>,<code>name:</code> und <code>material:</code> nicht optional sind. Das heißt das diese Tags in jeder Config existieren müssen.</p>
-<p>Jedoch gibt es noch weitere optionale Tags, durch die Sie Ihre Config erweitern können:</p>
-<ul>
-<li><code>recipes:</code></li>
-<li><code>lore:</code></li>
-<li><code>features:</code></li>
-<li><code>enchantments:</code></li>
-<li><code>modifiers:</code></li>
-<li><code>custommodeldata:</code></li>
-</ul>
-<p>Diese Tags erläutern wir in der <a href="config/advaned_config.html">Verbesserten Config</a>.</p>
-<h2 id="id-tag"><a class="header" href="#id-tag">ID-Tag</a></h2>
-<p>Der Tag <code>id:</code> wir benutzt, um die Id eines Items festzulegen. Wie in Vanilla Minecraft hat alles einen nicht visuellen
-Namespace. Dieser wir verwendet, um sich mit dem Command <code>/liquip give &lt;id&gt;</code> jedes Liquip-Item geben zu lassen.
-Normalerweise verwendet man Namespaces. Das sind einheitliche Bezeichnungen von jedem Item,
-also <code>&lt;namespace&gt;:&lt;item_name&gt;</code>. Der Namespace von allen offiziellen Liquip-Items ist <code>liquip:</code>.</p>
-<h2 id="name-tag"><a class="header" href="#name-tag">Name-Tag</a></h2>
-<p>Der Tag <code>name:</code> wird für den visuell sichbaren Namen verwendet. Dieser Tag unterstützt außerdem Lehrzeichen, was bei
-der ID nicht möglich ist.</p>
-<h2 id="material-tag"><a class="header" href="#material-tag">Material-Tag</a></h2>
-<p>In diesem Tag, müssen Sie das Item auswählen, welches darauffolgend auch angezeigt wird.</p>
-<h2 id="endergebnis"><a class="header" href="#endergebnis">Endergebnis</a></h2>
-<p>Unser TestItem sieht so aus:</p>
-<p><img src="config/pictures/Item_with_Name.png" alt="Item" /></p>
-<p>Erstellt mit dieser Config:</p>
-<pre><code class="language-config">id: &quot;liquip:test_item&quot;
-name: &quot;Item Name&quot;
-material: &quot;minecraft:grass_block&quot;
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="fortgeschrittene-config-tags"><a class="header" href="#fortgeschrittene-config-tags">Fortgeschrittene Config-Tags</a></h1>
-<p>Unser Plugin ermöglicht nicht nur 3 Tags wie in <a href="config/basic_config.html">Basic Config</a> gezeigt, sondern auch viele weitere.
-Darunter sind folgende Tags:</p>
-<ul>
-<li><code>lore:</code></li>
-<li><code>recipes:</code></li>
-<li><code>features:</code></li>
-<li><code>enchantments:</code></li>
-<li><code>modifiers:</code></li>
-<li><code>custommodeldata:</code></li>
-</ul>
-<p>Diese Tags sind nicht zwangsweise notwendig, sondern nur optional!</p>
-<p>Außerdem gibt es noch die Möglichkeit farbige Texte zu erstellen, siehe <a href="config/colorful_names.html">Farbige Namen</a>.</p>
-<h2 id="lore-tag"><a class="header" href="#lore-tag">Lore-Tag</a></h2>
-<p>Bei diesem Tag legen Sie die Beschreibung des Items fest. Dies kann z.B. so aussehen:</p>
-<pre><code class="language-lore_tag">lore: [
-  &quot;Test Item&quot;
-  &quot;Dies ist eine neue Zeile&quot;
-]
-</code></pre>
-<p>Im Spiel würde dies dann so aussehen:
-<img src="config/pictures/Item_With_Lore.png" alt="TestItemWithLore" /></p>
-<h2 id="recipes-tag"><a class="header" href="#recipes-tag">Recipes-Tag</a></h2>
-<p>Beim Recipes Tag legen Sie das Crafting-Rezept für Ihr neues Item fest. Dieses Rezept ist jedoch nur im Liquip-Craftingtable
-verfügbar. Dieser ist folgend aufgebaut: </p>
-<pre><code class="language-recipes_tag">recipes: [
-    {
-    shape: [&quot;xxx&quot;, &quot; y &quot;, &quot; y &quot;]
-    placeholders: [
-        {key: &quot;y&quot;, type: &quot;minecraft:stick&quot;}
-        {key: &quot;x&quot;, type: &quot;minecraft:diamond&quot;}
-    ]
-    }
-]
-</code></pre>
-<p>Unter <code>shape:</code> legt man mit Placeholdern (selbst ausgesuchte Buchstaben) das Recipe an sich fest. Diese Buchstaben
-stehen für die bei <code>placeholders:</code> festgelegten Materialien fest. Diese können auch Liquip Items sein. In diesem
-Beispiel verwenden wir das Crafting-Rezept für eine gewöhnliche Diamant-Spitzhacke. </p>
-<p>Die durch ein Kommatar getrennten <code>Strings</code> bei <code>shape:</code> stehen jeweils für eine Zeile im Crafting-Table.</p>
-<h2 id="features-tag"><a class="header" href="#features-tag">Features-Tag</a></h2>
-<p>Dieser Tag wird verwendet, um spezielle, nur per Plugin machbare Funktionen möglich zu machen. Features müssen Sie
-selber im <code>example-plugin</code> pogrammieren und dann als Tag spezifischen Items zuweisen. </p>
-<p>Das zuweisen in der Config würde so aussehen:</p>
-<pre><code class="language-features_tag">features: [
-  &quot;minecraft:unbreakable&quot;
-  &quot;liquip:test_feature&quot;
-]
-</code></pre>
-<p>Es gibt vorprogrammierte Features für unsere Items, wie z. B. der <code>Staff of Power</code>, welche Sie selbstverständlich
-auch zu Ihren Items hinzufügen können.</p>
-<p>Eine Liste aller von uns pogrammierten Features finden sie <a href="config/">hier</a>.</p>
-<h2 id="enchantments-tag"><a class="header" href="#enchantments-tag">Enchantments-Tag</a></h2>
+<p>Schreiben Sie das letzte Wort in dieser Datei von <code>false</code> zu <code>true</code>.</p>
+<p>Wenn Sie das erledigt haben, können Sie den Server über den gleichen, schon ausgeführten Befehl starten.</p>
+<p>Jetzt müsste sich auch ein <code>plugin</code> Ordner erstellen, in den Sie die Liquip-Datei hineinkopieren. (s. o.)</p>
+<p>Um das Plugin zu laden, müssen Sie den Server neu starten. Das geht mit dem Befehl <code>stop</code> und nach dem erfolgreichen
+Stoppen des Servers geben Sie einfach wieder den vorher verwendeteten Start-Befehl ein.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="das-konfigurations-format"><a class="header" href="#das-konfigurations-format">Das Konfigurations Format</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="erklärung-liquip-spezifischer-begriffe"><a class="header" href="#erklärung-liquip-spezifischer-begriffe">Erklärung Liquip-Spezifischer Begriffe</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="eigene-items"><a class="header" href="#eigene-items">Eigene Items</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="registration"><a class="header" href="#registration">Registration</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="minimale-konfigdatei"><a class="header" href="#minimale-konfigdatei">Minimale Konfigdatei</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="professionelles"><a class="header" href="#professionelles">Professionelles</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="typen"><a class="header" href="#typen">Typen</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="standartfeatures"><a class="header" href="#standartfeatures">Standartfeatures</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
+
+        <script>
         window.addEventListener('load', function() {
             MathJax.Hub.Register.StartupHook('End', function() {
                 window.setTimeout(window.print, 100);
             });
         });
         </script>
+
     </body>
 </html>
