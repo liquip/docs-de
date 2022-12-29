@@ -147,6 +147,49 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="registration"><a class="header" href="#registration">Registration</a></h1>
+<p>Bevor du endlich dein erstes Item erstellen kannst, musst du erstmal wissen, wie du deine eigenen Items registrierst.</p>
+<h3 id="was-bedeutet-eigentlich-registrieren"><a class="header" href="#was-bedeutet-eigentlich-registrieren">Was bedeutet eigentlich Registrieren?</a></h3>
+<p>Bei Liquip muss man seine Items nochmal in einer Hauptkonfigdatei auflisten. Man gibt immer den Pfad und den Namen
+deines neuen Items in solch einer Konfigdatei an, damit das Plugin später weiß, wo sich deine Konfigurationsdateien
+für deine Items befinden. </p>
+<p>Dies ist zwingend Nötig, wenn du deine Items später in Minecraft sehen möchtest.</p>
+<h2 id="ordnerstruktur"><a class="header" href="#ordnerstruktur">Ordnerstruktur</a></h2>
+<p>Aktuell müsste die Ordnerstruktur in <code>plugins/liquip</code> so aussehen:</p>
+<pre><code class="language-file_structure_first">└── config.json
+</code></pre>
+<p>Jetzt musst du nor noch einen Überbegriff erstellen, unter dem du deine Items auflistest. Am besten nennst du ihn
+ungefähr so: <code>items</code></p>
+<p>Die Konfigurationsdatei würde dann so aussehen:</p>
+<pre><code class="language-file_structure_medium">.
+├── config.json
+└── items
+   ├── bedrock_pickaxe.json
+   └── bedrock_sword.json
+</code></pre>
+<p>Du kannst auch weitere Unterordner für jede namespace erstellen.</p>
+<pre><code class="language-file_structure_max">.
+├── config.json
+└── items
+    └── mynewitems
+        ├── bedrock_pickaxe.json
+        └── bedrock_sword.json
+</code></pre>
+<h2 id="registration-1"><a class="header" href="#registration-1">Registration</a></h2>
+<p>Um die Items nun zu registrieren, musst du in die <code>config.json</code> folgenden Code eingeben:</p>
+<pre><code class="language-config.json">{
+  &quot;items&quot;: [
+    &quot;&lt;Pfad zu deinem Item&gt;/&lt;Dateiname (.json)&gt;&quot;
+  ]
+}
+</code></pre>
+<p>Wenn du deine Items später erstellt hast, müsste deine Konfigurationsdatei dann ungefähr so aussehen:</p>
+<pre><code class="language-finished config.json">{
+  &quot;items&quot;: [
+    &quot;items/mynewitems/bedrock_pickaxe.json&quot;,
+    &quot;items/mynewitems/bedrock_sword.json&quot;
+  ]
+}
+</code></pre>
 
                     </main>
 

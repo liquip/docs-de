@@ -147,6 +147,23 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="das-konfigurations-format"><a class="header" href="#das-konfigurations-format">Das Konfigurations Format</a></h1>
+<p>Liquip benutzt eine modifizierte Version von <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation#Datenstruktur_und_Formatdefinition">JSON</a>.
+Wenn du nicht weißt, was JSON ist, kannst du dir den Wikipedia Artikel dazu anschauen.</p>
+<p>Wichtig ist vor allem <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation#Datenstruktur_und_Formatdefinition">dieser</a> Unterpunkt.</p>
+<h2 id="unterschiede"><a class="header" href="#unterschiede">Unterschiede</a></h2>
+<p>Liquip lässt folgende Dinge zu:</p>
+<ul>
+<li>Tags ohne Anführungszeichen</li>
+<li>Kommentare</li>
+<li>Einzelne Anführungszeichen</li>
+</ul>
+<p>Das sieht ungefähr so aus:</p>
+<pre><code class="language-JSON-Format">{
+  // some comment
+  name: 'value',
+  'otherName': &quot;otherValue&quot;
+}
+</code></pre>
 
                     </main>
 

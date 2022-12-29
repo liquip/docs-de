@@ -195,10 +195,106 @@ eula=false
 <p>Um das Plugin zu laden, müssen Sie den Server neu starten. Das geht mit dem Befehl <code>stop</code> und nach dem erfolgreichen
 Stoppen des Servers geben Sie einfach wieder den vorher verwendeteten Start-Befehl ein.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="das-konfigurations-format"><a class="header" href="#das-konfigurations-format">Das Konfigurations Format</a></h1>
+<p>Liquip benutzt eine modifizierte Version von <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation#Datenstruktur_und_Formatdefinition">JSON</a>.
+Wenn du nicht weißt, was JSON ist, kannst du dir den Wikipedia Artikel dazu anschauen.</p>
+<p>Wichtig ist vor allem <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation#Datenstruktur_und_Formatdefinition">dieser</a> Unterpunkt.</p>
+<h2 id="unterschiede"><a class="header" href="#unterschiede">Unterschiede</a></h2>
+<p>Liquip lässt folgende Dinge zu:</p>
+<ul>
+<li>Tags ohne Anführungszeichen</li>
+<li>Kommentare</li>
+<li>Einzelne Anführungszeichen</li>
+</ul>
+<p>Das sieht ungefähr so aus:</p>
+<pre><code class="language-JSON-Format">{
+  // some comment
+  name: 'value',
+  'otherName': &quot;otherValue&quot;
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="erklärung-liquip-spezifischer-begriffe"><a class="header" href="#erklärung-liquip-spezifischer-begriffe">Erklärung Liquip-Spezifischer Begriffe</a></h1>
+<p>Bei Liquip benutzen wir viele Begriffe, die eventuell für manche uneindeutig sind. Deshalb versuchen wir in
+diesem Artikel diese Begriffe anschaulich zu erklären, um dir deine Arbeit mit Liquip zu erleichtern.</p>
+<h2 id="algemeine-begriffe"><a class="header" href="#algemeine-begriffe">Algemeine Begriffe</a></h2>
+<ul>
+<li>Liquip - Das gesammte Plugin (Liquip=Name)</li>
+<li>Paper - Einer Serversoftware für deine Minecraftserver</li>
+</ul>
+<h2 id="begriffe-in-der-konfigurationsdatei"><a class="header" href="#begriffe-in-der-konfigurationsdatei">Begriffe in der Konfigurationsdatei</a></h2>
+<ul>
+<li>key - Die genaue Kennzeichnung des Items (z. B. liquip:testitem). Standartmäfig ist der key so aufgebaut: <code>&lt;namespace&gt;:&lt;id&gt;</code>.</li>
+<li>material - Das Item an sich, welches angezeigt wird. (z. B. minecraft:stone). <a href="https://minecraftitemids.com/">Hier</a> gibt es eine Liste aller Items + key</li>
+<li>displayname - Der Text der Angezeigt werden soll, wenn man das Item in Minecraft hat. (Farben sind auch möglich)</li>
+<li>lore - Die Beschreibung des Items, die angezeigt wird, wenn man mit dem Mauszeiger auf dem Item ist.</li>
+<li>features - Spezielle Funktionen, die extra pogrammiert werden müssen und Items zugewisen werden können.</li>
+<li>recipes - Das Crafting-Rezept um das Item im Überlebendmodus herstellen zu können.</li>
+<li>enchantments - Verzauberungen die man dem Item zuweist. </li>
+</ul>
+<h2 id="weitere-begriffe"><a class="header" href="#weitere-begriffe">Weitere Begriffe</a></h2>
+<ul>
+<li>id - Eine einzigartige Bezeichnung für jedes Item in Minecraft. </li>
+<li>namespace - Ein Namespace fasst eine Gruppe von Datenwerten (IDs) zusammen, er ist sozusagen ihr Familienname.</li>
+<li></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="eigene-items"><a class="header" href="#eigene-items">Eigene Items</a></h1>
+<p>In diesem Kapitel wirst du endlich lernen, deine eigenen Items zu erstellen.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="registration"><a class="header" href="#registration">Registration</a></h1>
+<p>Bevor du endlich dein erstes Item erstellen kannst, musst du erstmal wissen, wie du deine eigenen Items registrierst.</p>
+<h3 id="was-bedeutet-eigentlich-registrieren"><a class="header" href="#was-bedeutet-eigentlich-registrieren">Was bedeutet eigentlich Registrieren?</a></h3>
+<p>Bei Liquip muss man seine Items nochmal in einer Hauptkonfigdatei auflisten. Man gibt immer den Pfad und den Namen
+deines neuen Items in solch einer Konfigdatei an, damit das Plugin später weiß, wo sich deine Konfigurationsdateien
+für deine Items befinden. </p>
+<p>Dies ist zwingend Nötig, wenn du deine Items später in Minecraft sehen möchtest.</p>
+<h2 id="ordnerstruktur"><a class="header" href="#ordnerstruktur">Ordnerstruktur</a></h2>
+<p>Aktuell müsste die Ordnerstruktur in <code>plugins/liquip</code> so aussehen:</p>
+<pre><code class="language-file_structure_first">└── config.json
+</code></pre>
+<p>Jetzt musst du nor noch einen Überbegriff erstellen, unter dem du deine Items auflistest. Am besten nennst du ihn
+ungefähr so: <code>items</code></p>
+<p>Die Konfigurationsdatei würde dann so aussehen:</p>
+<pre><code class="language-file_structure_medium">.
+├── config.json
+└── items
+   ├── bedrock_pickaxe.json
+   └── bedrock_sword.json
+</code></pre>
+<p>Du kannst auch weitere Unterordner für jede namespace erstellen.</p>
+<pre><code class="language-file_structure_max">.
+├── config.json
+└── items
+    └── mynewitems
+        ├── bedrock_pickaxe.json
+        └── bedrock_sword.json
+</code></pre>
+<h2 id="registration-1"><a class="header" href="#registration-1">Registration</a></h2>
+<p>Um die Items nun zu registrieren, musst du in die <code>config.json</code> folgenden Code eingeben:</p>
+<pre><code class="language-config.json">{
+  &quot;items&quot;: [
+    &quot;&lt;Pfad zu deinem Item&gt;/&lt;Dateiname (.json)&gt;&quot;
+  ]
+}
+</code></pre>
+<p>Wenn du deine Items später erstellt hast, müsste deine Konfigurationsdatei dann ungefähr so aussehen:</p>
+<pre><code class="language-finished config.json">{
+  &quot;items&quot;: [
+    &quot;items/mynewitems/bedrock_pickaxe.json&quot;,
+    &quot;items/mynewitems/bedrock_sword.json&quot;
+  ]
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="minimale-konfigdatei"><a class="header" href="#minimale-konfigdatei">Minimale Konfigdatei</a></h1>
+<p>Die minimalste Konfigurationsdatei ist so aufgebaut:</p>
+<pre><code class="language-minimal item config">{
+  &quot;key&quot;: &quot;&lt;namespace:id&gt;&quot;,
+  &quot;material&quot;: &quot;&lt;minecraft_item&gt;&quot;,
+  &quot;displayName&quot;: &quot;&lt;Anzeigename&gt;&quot;
+}
+</code></pre>
+<p>In den nächsten Kapiteln wirst du weitere Erweiterungen sehen, um deine Items weiter zu modifizieren.</p>
+<h3 id="farbige-anzeigenamen"><a class="header" href="#farbige-anzeigenamen">Farbige Anzeigenamen</a></h3>
+<p>Wir haben bei Liquip außerdem MiniMessages implementiert. Das heißt, dass Sie die Möglichkeit haben, Ihre Items
+farbig zu gestalten. </p>
+<p>Weitere Informationen und eine genaue Anleitung zur Verwendung von MiniMessages, finden Sie <a href="https://docs.adventure.kyori.net/minimessage/format.html">hier</a> (Englisch).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="professionelles"><a class="header" href="#professionelles">Professionelles</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="typen"><a class="header" href="#typen">Typen</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="standartfeatures"><a class="header" href="#standartfeatures">Standartfeatures</a></h1>
